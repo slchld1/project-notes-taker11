@@ -2,6 +2,7 @@ const nb = require('express').Router();
 const fs = require('fs');
 const nanoid = require('nanoid');
 const util = require('util');
+const db = require('../db/db.json')
 
 const readFromFile = util.promisify(fs.readFile);
 
@@ -47,9 +48,23 @@ nb.post('/', (req, res) => {
         res.json(response);
     }
     })
-nb.delete('/:id', (req, res) => {
-    
+nb.get('/:nano_id',(req, res)=>{
+    for(let i = 0; i < db.length; i++){
+        if(db[i].nano_id === req.params.nano_id){
+            res.json(db[i])
+        }
+    }
 })
+nb.delete('/:nano_id', (req, res) => {
+    for(let i = 0; i < db.length; i++){
+        if(db[i].nano_id === req.params.nano_id){
+            db.splice(i, 1)
+            break;
+        }
+    }
+    readAndAppend(db, './db/db.json');
+});
+
 
 
 module.exports = nb;
