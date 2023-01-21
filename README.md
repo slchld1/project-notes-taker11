@@ -50,12 +50,12 @@ Make sure you follow the correct version listed in the dependencies of `package.
 
 In order to start the application, direct your terminal to the same folder as where server.js is located,
 
-then type `node server` in the command line to start your server into <a href=http://localhost:3001/>`http://localhost:3001/`</a>.
+then type `node server` in the command line to start your server into <a href=http://localhost:3001/ target='_blank'>`http://localhost:3001/`</a>.
 
 ## Usage 💡
 ![Note taker screenshot](notetaker1.jpg)
 
-Application is run on <a href=http://localhost:3001/>`http://localhost:3001/`</a>. Press get started to access application.
+Application is run on <a href=http://localhost:3001/ target='_blank'>`http://localhost:3001/`</a>. Press get started to access application.
 
 ![Note taker screenshot](notetaker2.jpg)
 
