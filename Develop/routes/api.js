@@ -21,6 +21,21 @@ const readAndAppend = (content, file) => {
     }
     });
 };
+const readAndDelete = (id, file) => {
+    fs.readFile(file, 'utf8', (err, data) => {
+    if (err) {
+        console.error(err);
+    } else {
+        const parsedData = JSON.parse(data)
+        for(let i = 0;i < parsedData.length; i++){
+            if(parsedData[i].id === id){
+                parsedData.splice(i, 1)
+                writeToFile(file, parsedData)
+            }
+        }
+    }
+    });
+};
 
 nb.get('/', (req, res) => {
     console.info(`${req.method} note was saved`);
@@ -37,7 +52,7 @@ nb.post('/', (req, res) => {
         const newNote = {
             title,
             text,
-            nano_id: nanoid(),
+            id: nanoid(),
         };
         readAndAppend(newNote, './db/db.json');
         const response = {
@@ -48,23 +63,19 @@ nb.post('/', (req, res) => {
         res.json(response);
     }
     })
-nb.get('/:nano_id',(req, res)=>{
+nb.get('/:id',(req, res)=>{
     for(let i = 0; i < db.length; i++){
-        if(db[i].nano_id === req.params.nano_id){
+        if(db[i].id === req.params.id){
             res.json(db[i])
         }
     }
 })
-nb.delete('/:nano_id', (req, res) => {
-    for(let i = 0; i < db.length; i++){
-        if(db[i].nano_id === req.params.nano_id){
-            db.splice(i, 1)
-            break;
-        }
-    }
-    readAndAppend(db, './db/db.json');
-});
-
+    nb.delete('/:id',(req, res) => {
+        const id = req.params.id
+        readAndDelete(id, './db/db.json')
+        res.send(`Delete was called for ${id}`)
+    })  
+    
 
 
 module.exports = nb;

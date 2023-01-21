@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const api = require('./routes/index.js')
+const node_id = require('nanoid')
 
 const app = express();
 
