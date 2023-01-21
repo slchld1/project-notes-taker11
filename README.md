@@ -54,7 +54,16 @@ then type `node server` in the command line to start your server into `http://lo
 
 ## Usage 💡
 ![Note taker screenshot](notetaker1.jpg)
+
+Application is run on `http://localhost:3001/`. Press get started to access application.
+
 ![Note taker screenshot](notetaker2.jpg)
+
+Notes can be added on the right side of the page, once `Note title` and `note text` is filled, you can access the save button to save your note.
+
+Saved notes can be accessed on the left side of the page, notes can be edited by clicking on the note on the left side.
+
+Notes can also be deleted with the red trashcan icon. 
 
 ## License
 MIT License
