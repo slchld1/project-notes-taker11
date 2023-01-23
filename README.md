@@ -9,6 +9,8 @@
 ## Description 💾
 Note Taker Express is an application created with `Express` used to save notes.
 
+Application is deployed on heroku <a href=https://pure-fjord-88611.herokuapp.com/>https://pure-fjord-88611.herokuapp.com/</a>
+
 Every note is created with a specific id using `nanoid`. The application lets you to stay neatly organized tasks to help you complete them in an orderly fashion. Once you complete the task you could use the delete button to remove the note.
 ## User Story ✉️
 ~~~
